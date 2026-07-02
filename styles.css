@@ -77,6 +77,8 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-track { animation: none; }
+    .call-float { transition: none; animation: none; }
+    .call-float:hover { transform: none; }
   }
   body {
     font-family: var(--sans);
@@ -1175,6 +1177,47 @@
     background: transparent;
     color: var(--paper);
     border-color: var(--paper);
+  }
+  @keyframes call-float-bounce {
+    0%, 70%, 100% { transform: translateY(0); }
+    78% { transform: translateY(-7px); }
+    86% { transform: translateY(0); }
+    92% { transform: translateY(-3px); }
+  }
+  .call-float {
+    position: fixed;
+    right: max(1.25rem, env(safe-area-inset-right, 0px));
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+    z-index: 250;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.3rem;
+    background: var(--pop);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1;
+    border: 2px solid var(--pop);
+    border-radius: 999px;
+    box-shadow:
+      0 4px 18px rgba(30, 30, 30, 0.16),
+      0 2px 8px rgba(198, 93, 58, 0.32);
+    animation: call-float-bounce 3.2s ease-in-out infinite;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .call-float:hover {
+    background: var(--pop-deep);
+    border-color: var(--pop-deep);
+    color: #FFFFFF;
+    animation-play-state: paused;
+    transform: translateY(-2px);
+    box-shadow:
+      0 6px 22px rgba(30, 30, 30, 0.18),
+      0 3px 10px rgba(198, 93, 58, 0.38);
+  }
+  .call-float-icon {
+    flex-shrink: 0;
   }
   .site-footer {
     background: var(--bg-blue-soft);
