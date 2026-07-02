@@ -470,7 +470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span class="site-footer-copy">© 2026 Husnain Ramay · Meta & Google for service businesses</span>
 </footer>
 
-<a href="sms:+15487080577?body=Hi%20Husnain%2C%20I%27m%20interested%20in%20running%20Google%2FMeta%20Ads%20for%20my%20business!" class="call-float" aria-label="Text Husnain: Hi Husnain, I'm interested in running Google/Meta Ads for my business!">
+<a href="sms:+15487080577?body=Hi%20Husnain%2C%20I%27m%20interested%20in%20running%20Google%2FMeta%20Ads%20for%20my%20business!" class="call-float" id="text-me-float" aria-label="Text Husnain: Hi Husnain, I'm interested in running Google/Meta Ads for my business!">
   <svg class="call-float-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M5 5.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4.5 3.5V7.5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
   </svg>
@@ -673,6 +673,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   if (location.hash === '#audit') setForm('audit');
   else if (location.hash === '#inquiry') setForm('inquiry');
   else if (location.hash === '#contact-info') setForm('contact');
+
+  const textMeFloat = document.getElementById('text-me-float');
+  if (textMeFloat) {
+    textMeFloat.addEventListener('click', (event) => {
+      event.preventDefault();
+      const smsUrl = textMeFloat.href;
+      let opened = false;
+      const openSms = () => {
+        if (opened) return;
+        opened = true;
+        window.location.href = smsUrl;
+      };
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'text_me_click',
+        method: 'sms',
+        link_url: smsUrl,
+        eventCallback: openSms,
+        eventTimeout: 2000
+      });
+
+      setTimeout(openSms, 500);
+    });
+  }
 </script>
 
 </body>
