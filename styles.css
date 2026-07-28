@@ -373,6 +373,25 @@
   }
   .paper { background: var(--paper); color: var(--ink); }
   .ink { background: var(--surface); color: var(--ink); }
+  #tracking {
+    padding-inline: 0;
+  }
+  #tracking > .section-inner {
+    padding-inline: clamp(1.5rem, 5vw, 4rem);
+  }
+  #tracking .marquee-band {
+    margin-bottom: 3rem;
+  }
+  #tracking .marquee-track {
+    animation: marquee-tracking 40s linear infinite;
+  }
+  @keyframes marquee-tracking {
+    from { transform: translateX(0); }
+    to { transform: translateX(-25%); }
+  }
+  #tracking .section-header {
+    margin-bottom: 3rem;
+  }
   #results {
     background: var(--bg-blue-soft);
     border-bottom: 1px solid rgba(37, 99, 235, 0.1);
