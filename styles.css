@@ -1238,6 +1238,46 @@
   .call-float-icon {
     flex-shrink: 0;
   }
+  .thanks-page {
+    min-height: calc(100vh - var(--nav-h) - 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(3rem, 8vw, 5rem) var(--hero-inset-left);
+    background: var(--hero-gradient);
+  }
+  .thanks-card {
+    max-width: 36rem;
+    width: 100%;
+  }
+  .thanks-eyebrow {
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .thanks-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .thanks-copy {
+    color: var(--muted);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  .thanks-copy a {
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.35);
+  }
+  .thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
   .site-footer {
     background: var(--bg-blue-soft);
     color: var(--muted);
