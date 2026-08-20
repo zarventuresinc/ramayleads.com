@@ -371,6 +371,13 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+  .marquee-track--clients {
+    animation: marquee-clients 40s linear infinite;
+  }
+  @keyframes marquee-clients {
+    from { transform: translateX(0); }
+    to { transform: translateX(-25%); }
+  }
   .paper { background: var(--paper); color: var(--ink); }
   .ink { background: var(--surface); color: var(--ink); }
   #tracking {
